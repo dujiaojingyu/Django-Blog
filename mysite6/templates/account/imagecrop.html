@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/imagecrop.css' %}">
+<div class="container">
+  <div class="imageBox">
+    <div class="thumbBox"></div>
+    <div class="spinner" style="display: none"></div>
+  </div>
+  <div class="action">
+    <!-- <input type="file" id="file" style=" width: 200px">-->
+    <div class="new-contentarea tc"> <a href="javascript:void(0)" class="upload-img">
+      <label for="upload-file">请先选择图片...</label>
+      </a>
+      <input type="file" class="" name="upload-file" id="upload-file" />
+    </div>
+    <input type="button" id="btnCrop" class="Btnsty_peyton" value="OK">
+    <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
+    <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
+  </div>
+  <div class="cropped"></div>
+</div>
+
+<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/cropbox-min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/csrf.js' %}"></script>
+<script type="text/javascript"  src="{% static 'js/customize.js' %}"></script>

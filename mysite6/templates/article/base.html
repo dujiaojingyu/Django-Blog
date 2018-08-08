@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container-fluid" style="padding: 0px">
+        {% include 'article/header.html' %}
+        <div class="col-md-2">
+            {% include 'article/leftslider.html' %}
+        </div>
+        <div class="col-md-10">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    {% include 'article/foots.html' %}
+    </div>
+</body>
+</html>

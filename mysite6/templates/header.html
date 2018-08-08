@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<div class="container-fluid" style="padding: 0px">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://www.baidu.com" style="padding-left: 5px;padding-top: 0px">
+                <img src="{% static 'images/logo.png' %}" width="120px" height="50px" >
+            </a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'blog:blog_title' %}">BLOG</a></li>
+                <li><a href="{% url 'article:article_titles' %}">文章</a></li>
+
+            </ul>
+            {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <div class="btn-group" style="margin-top: 8px">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ user.username }} <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" style="min-width: 90px">
+                            <li class="text-center">
+                                <a href="{% url 'account:password_change' %}">修改密码</a>
+                                <a href="{% url 'account:my_information' %}">个人信息</a>
+                                <a href="{% url 'article:article_column' %}">后台管理</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li style="margin-right: 20px">
+                        <a href="{% url 'account:user_logout' %}">Logout</a>
+                    </li>
+                </ul>
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="margin-right: 20px"><a href="{% url 'account:user_login' %}">LOGIN</a></li>
+                    <li style="margin-right: 20px"><a href="{% url 'account:user_register' %}">Sign up</a></li>
+                </ul>
+            {% endif %}
+        </div>
+    </nav>
+</div>
