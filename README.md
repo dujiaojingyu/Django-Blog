@@ -1,1 +1,1 @@
-Django Project
+Django Blog Project
